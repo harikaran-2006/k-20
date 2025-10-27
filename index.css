@@ -1,0 +1,220 @@
+/* ===========================
+   DARK CYBER THEME STYLES
+   =========================== */
+
+:root {
+  --bg-dark: #0e141a;
+  --bg-card: #1a232c;
+  --accent-green: #00ff9c;
+  --accent-blue: #00b8ff;
+  --accent-red: #ff3b3b;
+  --text-light: #e6e6e6;
+  --text-dim: #a0aab2;
+  --border-radius: 10px;
+  --shadow: 0 0 15px rgba(0, 255, 156, 0.1);
+  --font-main: 'Consolas', 'Courier New', monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===========================
+   LAYOUT
+   =========================== */
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--accent-green);
+  font-size: 2.2rem;
+  text-shadow: 0 0 8px var(--accent-green);
+}
+
+/* ===========================
+   CARD & BOXES
+   =========================== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 255, 156, 0.15);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  margin-top: 30px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(0, 255, 156, 0.2);
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+.button {
+  background-color: var(--accent-blue);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0099dd;
+  box-shadow: 0 0 10px var(--accent-blue);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+/* ===========================
+   FILE UPLOAD
+   =========================== */
+input[type="file"] {
+  background-color: transparent;
+  border: 2px dashed rgba(0, 255, 156, 0.3);
+  color: var(--text-dim);
+  padding: 10px;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+/* ===========================
+   TABLE
+   =========================== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  text-align: left;
+  color: var(--text-dim);
+}
+
+.table th {
+  background-color: rgba(0, 255, 156, 0.1);
+  color: var(--accent-green);
+}
+
+.table tr:hover {
+  background-color: rgba(0, 255, 156, 0.05);
+}
+
+/* ===========================
+   PROCESSING POPUP
+   =========================== */
+.processing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 10, 15, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.processing-popup {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 255, 156, 0.2);
+  box-shadow: 0 0 25px rgba(0, 255, 156, 0.15);
+  border-radius: var(--border-radius);
+  width: 380px;
+  padding: 30px;
+  text-align: center;
+  animation: popupAppear 0.4s ease;
+}
+
+@keyframes popupAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===========================
+   PROGRESS BAR
+   =========================== */
+.progress-bar {
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  width: 0%;
+  border-radius: var(--border-radius);
+  transition: width 0.8s ease;
+  box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* ===========================
+   STATUS TEXT
+   =========================== */
+.status-safe {
+  color: var(--accent-green);
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px var(--accent-green);
+}
+
+.status-malware {
+  color: var(--accent-red);
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px var(--accent-red);
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes pulse {
+  0% { text-shadow: 0 0 4px var(--accent-green); }
+  50% { text-shadow: 0 0 12px var(--accent-green); }
+  100% { text-shadow: 0 0 4px var(--accent-green); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
